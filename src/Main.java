@@ -11,8 +11,7 @@ public class Main {
     }
     public static String calc(String input) {
         String [] str = input.split(" ");
-        try {if (!trowsEx(str)) throw new Exception();} //ошибка? выброс исключения
-            catch (Exception e) {throw new RuntimeException("throws Exception");}
+        try {if (!trowsEx(str)) throw new Exception();} catch (Exception e) {throw new RuntimeException("throws Exception");}
         int num1 = romanToInt(str[0]); int num2 = romanToInt(str[2]); // переводим в арабские
         int result = switch (str[1]) {
             case "+" -> num1 + num2;
@@ -41,7 +40,7 @@ public class Main {
         }}; return map.get(s);
     }
     private static String intToRoman(int num) {
-        if (num <= 0) {System.out.println("throws Exception");  System.exit(2);}
+        try {if (num <= 0) throw new Exception();} catch (Exception e) {throw new RuntimeException("throws Exception");}
         String[] c = {"", "C"};
         String[] x = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
         String[] i = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
