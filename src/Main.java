@@ -11,7 +11,7 @@ public class Main {
     }
     public static String calc(String input) {
         String [] str = input.split(" ");
-        try {if (!trowsEx(str)) throw new Exception();} //ошибка? выбросим исключение
+        try {if (!trowsEx(str)) throw new Exception();} //ошибка? выброс исключения
             catch (Exception e) {throw new RuntimeException("throws Exception");}
         int num1 = romanToInt(str[0]); int num2 = romanToInt(str[2]); // переводим в арабские
         int result = switch (str[1]) {
